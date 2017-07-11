@@ -15,7 +15,7 @@ import javax.swing.SwingUtilities;
  * @author Yolanda Philgreen
  *
  */
-public class GuiGame {
+public class GuiGame101 {
   JFrame frame;
   ImageIcon[] dieFaces;
   JButton roll1;
@@ -55,8 +55,8 @@ public class GuiGame {
   }
   
   private void play() {
-    StateMachine croupier = new StateMachine();
-    croupier.setDisplay(new StateMachine.Display() {
+    StateMachine101 croupier = new StateMachine101();
+    croupier.setDisplay(new StateMachine101.Display() {
       @Override
       public void update(int[] roll) {
         roll1.setIcon(dieFaces[roll[0] - 1]);
@@ -64,7 +64,7 @@ public class GuiGame {
       }
       
     });
-    croupier.setPlayable(new StateMachine.Playable() {
+    croupier.setPlayable(new StateMachine101.Playable() {
       @Override
       public boolean playAgain(int wins, int losses) {
         // TODO Auto-generated method stub
@@ -72,7 +72,7 @@ public class GuiGame {
       }
       
     });
-    croupier.setContinuable(new StateMachine.Continuable() {
+    croupier.setContinuable(new StateMachine101.Continuable() {
       @Override
       public boolean continuePlay(int wins, int losses, int point) {
         return false;
@@ -82,7 +82,7 @@ public class GuiGame {
   }
   
   private static ImageIcon createImageIcon(String path) {
-    URL imgURL = GuiGame.class.getClassLoader().getResource(path);
+    URL imgURL = GuiGame101.class.getClassLoader().getResource(path);
     return new ImageIcon(imgURL);  
   }
   /**
@@ -93,7 +93,7 @@ public class GuiGame {
 
       @Override
       public void run() {
-        GuiGame game = new GuiGame();
+        GuiGame101 game = new GuiGame101();
         game.createAndShowGui();      
       }
       
